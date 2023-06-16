@@ -1,17 +1,17 @@
 #include <stdio.h>
 
 /**
- * main = The entry point of the program
+ * main - The entry point of the program
  *
  * Return: always 0
  */
 
 int main(void)
 {
-	printf("Size of a char: %d", (int) sizeof(char));
-	printf("Size of an int: %d", (int) sizeof(int));
-	printf("Size of a long int: %d", (int) sizeof(long int));
-	printf("Size of a long long: %d", (int) sizeof(long long));
-	printf("Size of a float: %d", (int) sizeof( float));
+	printf("Size of a char: %d byte(s)\n", (int) sizeof(char));
+	printf("Size of an int: %d byte(s)\n", (int) sizeof(int));
+	printf("Size of a long int: %d byte(s)\n", (int) sizeof(long int));
+	printf("Size of a long long: %d byte(s)\n", (int) sizeof(long long));
+	printf("Size of a float: %d byte(s)\n", (int) sizeof(float));
 	return (0);
 }
