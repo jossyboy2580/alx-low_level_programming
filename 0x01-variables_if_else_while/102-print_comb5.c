@@ -28,7 +28,7 @@ int main(void)
 						putchar(k);
 						putchar(l);
 						if (i + j < 113 && k + l < 114)
-							putchar(' ');
+							putchar(',');
 					}
 				}
 			}
