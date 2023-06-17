@@ -25,7 +25,7 @@ int main(void)
 						putchar(' ');
 						putchar(k);
 						putchar(l);
-						if (i + j < 113 || k + l < 114 && i + j + k + l != 197)
+						if ((i + j < 113 || k + l < 114) && (i + j + k + l < 197))
 						{
 							putchar(',');
 							putchar(' ');
