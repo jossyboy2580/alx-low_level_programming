@@ -23,7 +23,7 @@ int main(void)
 						if (i + j > 96 && k + l > 97)
 							putchar(' ');
 						putchar(i);
-						putchat(j);
+						putchar(j);
 						putchar(' ');
 						putchar(k);
 						putchar(l);
