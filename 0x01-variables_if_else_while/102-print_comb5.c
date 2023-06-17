@@ -20,15 +20,16 @@ int main(void)
 				{
 					if (i + j < k + l)
 					{
-						if (i + j > 96 && k + l > 97)
-							putchar(' ');
 						putchar(i);
 						putchar(j);
 						putchar(' ');
 						putchar(k);
 						putchar(l);
 						if (i + j < 113 && k + l < 114)
+						{
 							putchar(',');
+							putchar(' ');
+						}
 					}
 				}
 			}
