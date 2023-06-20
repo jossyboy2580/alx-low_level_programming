@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_alphabet - The entry point to a program that prints all lower case letters
- * ten(10) times
+ * print_alphabet - The entry point to a program
+ * that print lowercase letters ten times
  * using the _putchar function
  *
  * Return: always 0(success)
@@ -21,5 +21,4 @@ void print_alphabet_x10(void)
 		}
 		_putchar('\n');
 	}
-	return;
 }
