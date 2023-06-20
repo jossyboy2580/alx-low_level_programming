@@ -13,21 +13,19 @@ void print_to_98(int n)
 	if (n > 98)
 	{
 		int start = n;
+
 		while (start >= 98)
 		{
-			_putchar(',');
-			_putchar(' ');
-			printf("%d", start--);
+			printf(", %d", --start);
 		}
 	}
 	else if (n < 98)
 	{
 		int start = n;
+
 		while (start <= 98)
 		{
-			_putchar(',');
-			_putchar(' ');
-			printf("%d", start++);
+			printf(", %d", ++start);
 		}
 	}
 	_putchar('\n');
