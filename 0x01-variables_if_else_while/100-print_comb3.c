@@ -16,11 +16,11 @@ int main(void)
 		{
 			if (i < j)
 			{
-				if (i != 48 && j != 49)
+				if (i + j > 97)
 					putchar(' ');
 				putchar(i);
 				putchar(j);
-				if (i != 56 && j != 57)
+				if (i + j < 113)
 					putchar(',');
 			}
 		}
