@@ -1,21 +1,21 @@
 #include "main.h"
 
 /**
- * main - The entry point to a program that prints the character putchar
- * using the _putchar function
+ * main - The entry point of the program
  *
  * Return: always 0(success)
  */
 
 int main(void)
 {
-	int i = 97;
-
-	while (i < 123)
-	{
-		_putchar(i);
-		i++;
-	}
+	_putchar(95);
+	_putchar(112);
+	_putchar(117);
+	_putchar(116);
+	_putchar(99);
+	_putchar(104);
+	_putchar(97);
+	_putchar(114);
 	_putchar('\n');
 	return (0);
 }
