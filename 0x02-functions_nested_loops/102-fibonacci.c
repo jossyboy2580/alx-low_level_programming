@@ -20,5 +20,6 @@ int main(void)
 		if (count != 49)
 			printf(", ");
 	}
+	printf("\n");
 	return (0);
 }
