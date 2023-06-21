@@ -9,14 +9,15 @@
 
 int main(void)
 {
-	int first = 1, second, count, temp = 0;
+	long long first = 1, second, temp = 0;
+	int count;
 
 	for (count = 0; count < 50; count++)
 	{
 		second = temp + first;
 		temp = first;
 		first = second;
-		printf("%d", second);
+		printf("%lld", second);
 		if (count != 49)
 			printf(", ");
 	}
