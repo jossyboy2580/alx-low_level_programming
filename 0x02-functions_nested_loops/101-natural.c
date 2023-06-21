@@ -2,9 +2,11 @@
 
 /**
  * main - The sum of all multiples of 3 or 5 less than 1024
+ *
+ * Return: always 0(success)
  */
 
-void main(void)
+int main(void)
 {
 	int sum = 0, i;
 
@@ -14,4 +16,5 @@ void main(void)
 			sum += i;
 	}
 	printf("%d", sum);
+	return (0);
 }
