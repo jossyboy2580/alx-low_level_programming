@@ -1,18 +1,20 @@
 #include "main.h"
 
 /**
- * times_table - Function to print the times table from
- * 0 to 9
+ * print_times_table - Function to print the times table from
+ * 0 to n
+ *
+ * @n: the upper limit of the multiplication fn
  *
  */
 
-void times_table(void)
+void print_times_table(int n)
 {
 	int i, j;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i <= n; i++)
 	{
-		for (j = 0; j < 10; j++)
+		for (j = 0; j <= n; j++)
 		{
 			int prod;
 
