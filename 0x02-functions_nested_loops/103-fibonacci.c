@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	unsigned long first = 1, temp = 0, second, sum;
+	unsigned long first = 1, temp = 0, second, sum = 0;
 
 	second = first + temp;
 	while (second <= 4000000)
@@ -19,6 +19,7 @@ int main(void)
 			sum += second;
 		temp = first;
 		first = second;
+		second = first + temp;
 	}
 	printf("%lu\n", sum);
 	return (0);
