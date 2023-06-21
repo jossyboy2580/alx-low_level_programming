@@ -16,7 +16,7 @@ void print_to_98(int n)
 		for (start = n; start >= 98; start--)
 		{
 			if (start != n)
-				printf(" ,");
+				printf(", ");
 			printf("%d", start);
 		}
 	}
@@ -27,7 +27,7 @@ void print_to_98(int n)
 		for (start = n; start <= 98; start++)
 		{
 			if (start != n)
-				printf(" ,");
+				printf(", ");
 			printf("%d", start);
 		}
 	}
