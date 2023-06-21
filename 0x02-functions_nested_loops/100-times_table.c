@@ -18,7 +18,7 @@ void print_times_table(int n)
 		{
 			for (j = 0; j <= n; j++)
 			{
-				int prod, temp;
+				int prod, temp, rem, div = 100;
 
 				prod = i * j;
 				temp = prod;
@@ -30,8 +30,6 @@ void print_times_table(int n)
 						temp *= 10;
 					}
 				}
-				int div = 100;
-
 				while (prod)
 				{
 					rem = prod % div;
