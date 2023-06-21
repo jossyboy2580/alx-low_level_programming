@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	unsigned long long first = 1, second, temp = 0;
+	unsigned long first = 1, second, temp = 0;
 	int count;
 
 	for (count = 0; count < 98; count++)
@@ -17,7 +17,7 @@ int main(void)
 		second = temp + first;
 		temp = first;
 		first = second;
-		printf("%llu", second);
+		printf("%lu", second);
 		if (count != 49)
 			printf(", ");
 	}
