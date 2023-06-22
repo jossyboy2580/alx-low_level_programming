@@ -7,7 +7,7 @@
 
 void more_numbers(void)
 {
-	int c = 0, quotient, remainder;
+	int c = 0, quotient, remainder, n = 1;
 
 	while (c < 15)
 	{
@@ -22,7 +22,8 @@ void more_numbers(void)
 		else
 			_putchar(remainder + '0');
 		c++;
-		if (c == 15)
+		n++;
+		if (c == 15 && n < 11)
 		{
 			_putchar('\n');
 			c = 0;
