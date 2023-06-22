@@ -4,7 +4,7 @@
 void  print_space(int);
 
 /**
- * print_line - a function that prints diagonal using a slash
+ * print_diagonal - a function that prints diagonal using a slash
  *
  * @n: Number of times to print the diagonal
  */
