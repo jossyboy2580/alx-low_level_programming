@@ -7,26 +7,22 @@
 
 void more_numbers(void)
 {
-	int c = 0, quotient, remainder, n = 1;
+	int quotient, remainder, n;
 
-	while (c < 15)
+	for (n = 0; n < 10; n++)
 	{
-		quotient =  c / 10;
-		remainder = c % 10;
+		int c = 0;
 
-		if (quotient)
+		while (c < 15)
 		{
-			_putchar(quotient + '0');
+			quotient =  c / 10;
+			remainder = c % 10;
+
+			if (quotient)
+				_putchar(quotient + '0');
 			_putchar(remainder + '0');
+			c++;
 		}
-		else
-			_putchar(remainder + '0');
-		c++;
-		n++;
-		if (c == 15 && n < 11)
-		{
-			_putchar('\n');
-			c = 0;
-		}
+		_putchar('\n');
 	}
 }
