@@ -9,7 +9,7 @@
  * 0 if otherwise
  */
 
-int _isupper(int c)
+int _isdigit(int c)
 {
 	if (c <= '9' && c >= '0')
 		return (1);
