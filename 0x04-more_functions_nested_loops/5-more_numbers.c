@@ -22,7 +22,7 @@ void more_numbers(void)
 		else
 			_putchar(remainder + '0');
 		c++;
-		if (c == 16)
+		if (c == 15)
 		{
 			_putchar('\n');
 			c = 0;
