@@ -11,7 +11,7 @@ void print_rev(char *s)
 {
 	int strln = _strlen(s) - 1;
 
-	while (strln != 0)
+	while (strln >= 0)
 	{
 		_putchar(s[strln] + 0);
 		strln--;
