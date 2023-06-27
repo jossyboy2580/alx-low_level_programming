@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <errno.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * main - The entry point of a program that prints to
@@ -11,7 +11,7 @@
 
 int main(void)
 {
-	errno = 1;
-	perror("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
-	return (errno);
+	const char *message = "and that piece of art is useful\" - Dora Korper, 2015-10-19\n";
+	write(2, message, strlen(message));
+	return (1);
 }
