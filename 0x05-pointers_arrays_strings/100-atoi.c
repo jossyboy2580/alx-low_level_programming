@@ -18,7 +18,7 @@ int _atoi(char *s)
 		i++;
 
 	/* Handle optional sign */
-	if (s[i] == '+' || s[i] == '-')
+	while (s[i] == '+' || s[i] == '-')
 	{
 		sign = (s[i] == '-') ? -1 : 1;
 		i++;
