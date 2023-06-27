@@ -13,6 +13,22 @@ int _atoi(char *s)
 	int sign = 1;
 	int i = 0;
 
-	// Skip leading white space
-	while (s[i] == ' ' || s[i] == '\t' 
+	/* Skip leading white space */
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		i++;
+
+	/* Handle optional sign */
+	if (s[i] == '+' || s[i] == '-')
+	{
+		sign = (s[i] == '-') ? -1 : 1;
+		i++;
+	}
+
+	/* Convert digits to integer values */
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		result = result * 10 + (s[i] - '0');
+		i++;
+	}
+	return (sign * result);
 }
