@@ -6,7 +6,7 @@
  *
  * @s1: First string
  * @s2: Second string
- * Return: integer 
+ * Return: integer
  * 1 if s2 is greater than s1
  * -1 if s1 is greater than s2
  *  0 if they are equal
