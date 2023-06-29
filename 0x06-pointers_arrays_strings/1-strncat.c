@@ -5,6 +5,7 @@
  *
  * @src: the source from which we will copy
  * @dest: the destination of the concatenation
+ * @n: number of bytes well copy from src
  * Return: the pointer to the destination
  */
 
