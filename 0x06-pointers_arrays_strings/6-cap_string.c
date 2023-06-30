@@ -34,7 +34,7 @@ char *cap_string(char *s)
 
 int is_separator(char c)
 {
-	char *separators = ", ;.!?\"()}{";
+	char *separators = ",; .!\t?\"()\n}{";
 	int i;
 
 	for (i = 0; i < 11; i++)
