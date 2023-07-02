@@ -17,9 +17,9 @@ char *rot13(char *s)
 	{
 		for (j = 0; domain[j]; j++)
 		{
-			if (s[i] == domain[i])
+			if (s[i] == domain[j])
 			{
-				s[i] = co_domain[i];
+				s[i] = co_domain[j];
 				break;
 			}
 		}
