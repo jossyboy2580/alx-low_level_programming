@@ -7,7 +7,7 @@
  * Return: the pointer to the string s
  */
 
-char *rot13(char *s);
+char *rot13(char *s)
 {
 	char *domain = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char *co_domain = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
