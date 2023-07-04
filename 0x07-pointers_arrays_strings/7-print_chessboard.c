@@ -4,7 +4,6 @@
  * print_chessboard - Print out the chessboard
  *
  * @a: an n by 8 matrics
- * @n: the number of rows
  */
 
 void print_chessboard(char (*a)[8])
