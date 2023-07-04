@@ -7,11 +7,11 @@
  * @n: the number of rows
  */
 
-void print_chessboard(char (*a)[n][8])
+void print_chessboard(char (*a)[8])
 {
-	int i, j;
+	int i;
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < 8; i++)
 	{
 		int j = 0;
 
@@ -20,6 +20,6 @@ void print_chessboard(char (*a)[n][8])
 			_putchar(a[i][j] + 0);
 			j++;
 		}
-		_putchar('\0');
+		_putchar('\n');
 	}
 }
