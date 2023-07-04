@@ -9,7 +9,7 @@
 
 void print_diagsums(int *a, int size)
 {
-	int i, j, major_diag, minor_diag;
+	int i, j, major_diag = 0, minor_diag = 0;
 
 	for (i = 0; i < size; i++)
 	{
@@ -21,4 +21,5 @@ void print_diagsums(int *a, int size)
 				minor_diag += a[i][j];
 		}
 	}
+	printf("%d, %d\n", major_diag, minor_diag);
 }
