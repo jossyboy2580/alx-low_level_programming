@@ -28,7 +28,7 @@ int prime_check(int num, int half)
 {
 	if (half == 1)
 		return (1);
-	if (n % half == 0)
+	if (num % half == 0)
 		return (0);
 	return (prime_checker(num, half - 1);
 }
