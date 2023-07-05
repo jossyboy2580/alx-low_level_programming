@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 void reverse_printer(char *s, int len);
 /**
@@ -11,9 +12,7 @@ void _print_rev_recursion(char *s)
 {
 	int len = 0;
 
-	while (s[len] != '\0')
-		len++;
-
+	len = strlen(s);
 	reverse_printer(s, len - 1);
 }
 
