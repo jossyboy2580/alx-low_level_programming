@@ -13,20 +13,20 @@ int _sqrt_recursion(int n)
 {
 	int half;
 
-	half = n / 2;
+	half = n;
 	return (get_sqrt(n, half));
 }
 
 /**
  * get_sqrt - Determine the square root of n
  * @n: we find the sqrt of this number
- * @half; midpoint of n
+ * @half: midpoint of n
  * Return: Sqrt of n
  */
 
 int get_sqrt(int n, int half)
 {
-	if (half < 2)
+	if (half < 1)
 		return (-1);
 	if ((half * half) == n)
 		return (half);
