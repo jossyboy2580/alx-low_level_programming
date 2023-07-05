@@ -30,5 +30,5 @@ int prime_check(int num, int half)
 		return (1);
 	if (num % half == 0)
 		return (0);
-	return (prime_check(num, half - 1);
+	return (prime_check(num, half - 1));
 }
