@@ -30,5 +30,5 @@ int get_sqrt(int n, int half)
 		return (-1);
 	if ((half * half) == n)
 		return (half);
-	return get_sqrt(n, half - 1);
+	return (get_sqrt(n, half - 1));
 }
