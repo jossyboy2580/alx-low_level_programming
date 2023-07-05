@@ -28,7 +28,7 @@ void reverse_printer(char *s, int len)
 {
 	if (len <= 0)
 	{
-		_putchar('\n');
+		/* _putchar('\n'); */
 		return;
 	}
 	_putchar(s[len] + 0);
