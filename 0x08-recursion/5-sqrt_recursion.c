@@ -1,6 +1,6 @@
 #include "main.h"
 
-int get_sqrt(int, int);
+long int get_sqrt(long int, long int);
 /**
  * _sqrt_recursion - Recursive determination of the square root
  * of n
@@ -14,7 +14,7 @@ int _sqrt_recursion(int n)
 	int half;
 
 	half = n;
-	return (int (get_sqrt(n, half)));
+	return ((int) (get_sqrt(n, half)));
 }
 
 /**
@@ -24,7 +24,7 @@ int _sqrt_recursion(int n)
  * Return: Sqrt of n
  */
 
-int get_sqrt(long int n, long int half)
+long int get_sqrt(long int n, long int half)
 {
 	if (half < 0)
 		return (-1);
