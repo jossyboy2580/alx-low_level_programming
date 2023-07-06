@@ -3,7 +3,7 @@
 
 int check_palindrome(char *s, int start, int width);
 /**
- * is_palidrome - A function to check if a string is a palidrome
+ * is_palindrome - A function to check if a string is a palidrome
  *
  * @s: A string to check if its palindrome
  * Return: 1 if its palindrome 0 if its not
@@ -21,13 +21,14 @@ int is_palindrome(char *s)
 /**
  * check_palindrome - Is it palindrome
  * @s: String to check
- * @width: width of the string
+ * @start: lower index of first character to compare
+ * @end: upper index of second character to compare
  * Return: 1 if palidrone 0 if not
  */
 
-int check_palindrome(char *s, int start,int end)
+int check_palindrome(char *s, int start, int end)
 {
-	if ((start >= end))
+	if (start >= end)
 		return (1);
 	if (s[start] != s[end])
 		return (0);
