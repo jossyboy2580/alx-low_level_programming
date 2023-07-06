@@ -14,7 +14,7 @@ int _sqrt_recursion(int n)
 	int half;
 
 	half = n;
-	return (get_sqrt(n, half));
+	return (int (get_sqrt(n, half)));
 }
 
 /**
@@ -24,9 +24,11 @@ int _sqrt_recursion(int n)
  * Return: Sqrt of n
  */
 
-int get_sqrt(int n, int half)
+int get_sqrt(long int n, long int half)
 {
-	if (half == 1)
+	if (half < 0)
+		return (-1);
+	if (half == 0)
 		return (-1);
 	if ((half * half) == n)
 		return (half);
