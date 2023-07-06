@@ -26,7 +26,7 @@ int _sqrt_recursion(int n)
 
 int get_sqrt(int n, int half)
 {
-	if (half < 1)
+	if (half == 1)
 		return (-1);
 	if ((half * half) == n)
 		return (half);
