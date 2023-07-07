@@ -9,7 +9,7 @@
  * Return: 0 always successful
  */
 
-int main(int arg, char *argv[]c)
+int main(int arg, char *argv[])
 {
 	char *argl = argv;
 	printf("%d\n", argc);
