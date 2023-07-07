@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+/**
+ * main - Entry point to a program that prints the product of
+ * two numbers
+ *
+ * @argc: The number of arguments that this program receives
+ * @argv: An array of arguments in strings
+ * Return: 1 if its a sucvess and 0 if not
+ */
+
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%d\n", argv[1] * argv[2]);
+		return (0);
+	}
+	else
+	{
+		printf("Error\n");
+		return (1);
+	}
+}
