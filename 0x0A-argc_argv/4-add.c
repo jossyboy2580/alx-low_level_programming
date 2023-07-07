@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		int count, digit
-			;
+		int count, digit;
+
 		for (count = 1; count < argc; count++)
 		{
 			char *arg = argv[count];
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		printf("Error\n");
+		printf("0\n");
 		return (1);
 	}
 
