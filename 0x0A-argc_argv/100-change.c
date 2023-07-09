@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 		if (argv[1][0] == '-')
 		{
 			printf("0\n");
-	
+
 		}
 		if (is_digit(argv[1]))
 		{
