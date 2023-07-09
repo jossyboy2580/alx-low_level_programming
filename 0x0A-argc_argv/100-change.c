@@ -5,7 +5,8 @@
 /**
  * is_digit - This function checks if a given argument is a digit
  *
- * @arg: argument to check
+ * @s: argument to check
+ * Return: 1 if its a digit and 0 if it contains a non-digit
  */
 
 int is_digit(char *s)
