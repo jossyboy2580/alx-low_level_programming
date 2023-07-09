@@ -15,23 +15,27 @@ int main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		int val, index = 0;
+		int val, index;
 		int cents[] = {25, 10, 5, 2, 1};
 
-		while (*(*argv[index] != '\0'))
+		if (argv[1][0] == '-')
 		{
-			if (*(*argv[index]) > 57 || *(*argv[index]) < 48)
+			printf("0\n");
+			return (1);
+		}
+		for (index = 0; argv[1][index] != '\0'; index++)
+		{
+			if (isdigit(argv[1][index]) == 0)
 			{
-				printf("\n");
+				printf("Error\n");
 				return (1);
 			}
-			index++;
 		}
 		val = atoi(argv[1]);
 
 		while (val > 0)
 		{
-			while (val >= present
+			while (val >= present)
 		}
 	}
 	else
