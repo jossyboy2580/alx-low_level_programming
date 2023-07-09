@@ -15,25 +15,21 @@ int main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		int count, digit;
+		int count;
 
 		for (count = 1; count < argc; count++)
 		{
-			char *arg = argv[count];
 			int i;
 
-			for (i = 0; arg[i] != '\0'; i++)
+			for (i = 1; i < argc; i++)
 			{
-				if (isdigit(arg[i]))
-				{
-					digit = arg[i] - '0';
-					sum += digit;
-				}
-				else
+				if (isdigit(argv[i]) == 0)
 				{
 					printf("Error\n");
 					return (1);
 				}
+				else
+					sum = sum + atoi(argv[i]);
 			}
 		}
 		printf("%d\n", sum);
