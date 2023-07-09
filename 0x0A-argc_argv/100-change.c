@@ -50,13 +50,14 @@ int main(int argc, char **argv)
 			{
 				int present = cents[i];
 
-				while (val > present)
+				while (val >= present)
 				{
 					val = val - present;
 					count++;
 				}
 				i++;
 			}
+			printf("%d\n", count);
 		}
 	}
 	else
