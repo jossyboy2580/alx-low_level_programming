@@ -3,7 +3,7 @@
 
 int print_rev(char *, int);
 /**
- * _print_rev_recursion - A function that uses recursion to 
+ * _print_rev_recursion - A function that uses recursion to
  * print a string in reverse
  *
  * @s: Pointer to the string
@@ -26,6 +26,8 @@ void _print_rev_recursion(char *s)
 
 int print_rev(char *s, int len)
 {
+	if (*s == '\0')
+		return (0);
 	if (len == 0)
 	{
 		_putchar(*s);
