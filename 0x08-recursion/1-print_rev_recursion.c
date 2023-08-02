@@ -3,7 +3,8 @@
 
 int print_rev(char *, int);
 /**
- * _print_rev_recursion - A function that uses recursion to print a string in reverse
+ * _print_rev_recursion - A function that uses recursion to 
+ * print a string in reverse
  *
  * @s: Pointer to the string
  */
@@ -12,7 +13,7 @@ void _print_rev_recursion(char *s)
 {
 	int len = strlen(s);
 
-	print_rev((s + len - 1), len);
+	print_rev((s + len - 1), len - 1);
 }
 
 /**
