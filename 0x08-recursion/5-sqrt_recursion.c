@@ -1,6 +1,6 @@
 #include "main.h"
 
-long int get_sqrt(long int, long int);
+long get_sqrt(long, long);
 /**
  * _sqrt_recursion - Square root calculation
  *
@@ -14,7 +14,7 @@ int _sqrt_recursion(int n)
 		return (-1);
 	if (n == 1)
 		return (1);
-	return ((int) get_sqrt((long int) n, (long int) n / 2));
+	return ((int) get_sqrt((long) n, (long) n / 2));
 }
 
 /**
@@ -25,7 +25,7 @@ int _sqrt_recursion(int n)
  * Return: the sqquare root of n
  */
 
-long int get_sqrt(long int n, long int hlf)
+long get_sqrt(long n, long hlf)
 {
 	if (hlf < 1)
 		return (-1);
