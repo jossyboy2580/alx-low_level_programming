@@ -16,9 +16,6 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		/* Calculate the length of each string
-		 * and check each character for a non digit
-		 * character */
 		int j = 0;
 
 		while (argv[i][j] != '\0')
