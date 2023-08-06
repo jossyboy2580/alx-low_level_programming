@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 	{
 		int j = 0;
 		int arg_in_digit, current_cent;
-		long unsigned int idx = 0;
+		unsigned long int idx = 0;
 
 		while (argv[1][j] != '\0')
 		{
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 			j++;
 		}
 		arg_in_digit = atoi(argv[1]);
-		
+
 		while (arg_in_digit > 0 && idx < sizeof(cents) / sizeof(cents[0]))
 		{
 			current_cent = cents[idx];
