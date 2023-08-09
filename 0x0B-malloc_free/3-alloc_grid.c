@@ -13,7 +13,7 @@
 int **alloc_grid(int width, int height)
 {
 	int **new_array;
-	int i, j;
+	int i;
 
 	if (width == 0 || height == 0)
 		return (NULL);
