@@ -14,6 +14,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	void *new_mem;
 	unsigned int i;
 
+	if (size == 0 || nmemb == 0)
+		return (NULL);
 	new_mem = malloc(nmemb * size);
 	if (!new_mem)
 		return (NULL);
