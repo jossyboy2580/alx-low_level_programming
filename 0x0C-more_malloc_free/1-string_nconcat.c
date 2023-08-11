@@ -43,6 +43,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 				break;
 		}
 	}
+	new_mem[added] = '\0';
 	return (new_mem);
 }
 
