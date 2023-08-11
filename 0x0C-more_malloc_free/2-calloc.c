@@ -5,7 +5,7 @@
  * each with size size
  *
  * @nmemb: number of members
- * @size the size of each
+ * @size: the size of each
  * Return: Pointer to the new mem or NULL if malloc fails
  */
 
