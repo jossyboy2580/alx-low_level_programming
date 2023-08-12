@@ -18,6 +18,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int i = 0;
 	char *new_mem;
 
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	upper_bound = get_min(strlen(s2), n);
 	new_mem = malloc(sizeof(char) * (strlen(s1) + upper_bound + 1));
 	if (!new_mem)
