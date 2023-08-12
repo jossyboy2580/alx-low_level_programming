@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdlib.h>
 #include <string.h>
 
 int get_min(int, int);
