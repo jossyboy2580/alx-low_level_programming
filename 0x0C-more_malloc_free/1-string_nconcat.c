@@ -26,26 +26,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	new_mem = malloc(sizeof(char) * (strlen(s1) + upper_bound + 1));
 	if (!new_mem)
 		return (NULL);
-	if (s1 != NULL)
+	while (s1[i] != '\0')
 	{
-		while (s1[i] != '\0')
-		{
-			new_mem[added] = s1[i];
-			i++;
-			added++;
-		}
+		new_mem[added] = s1[i];
+		i++;
+		added++;
 	}
 	i = 0;
-	if (s2 != NULL)
+	while (s2[i] != '\0')
 	{
-		while (s2[i] != '\0')
-		{
-			new_mem[added] = s2[i];
-			i++;
-			added++;
-			if (i == n)
-				break;
-		}
+		new_mem[added] = s2[i];
+		i++;
+		added++;
+		if (i == n)
+			break;
 	}
 	new_mem[added] = '\0';
 	return (new_mem);
