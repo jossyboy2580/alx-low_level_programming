@@ -21,10 +21,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	new_mem = malloc(nmemb * size);
 	if (!new_mem)
 		return (NULL);
-
-	for (i = 0; i < nmemb; i++)
-		*((char *)new_mem + i * size) = 0;
-
+	memset(new_mem, 0, nmemb * size);
 	return (new_mem);
 }
 
