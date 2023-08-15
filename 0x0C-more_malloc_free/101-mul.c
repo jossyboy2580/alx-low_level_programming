@@ -60,8 +60,8 @@ void rev_array(int *arr, int len)
 		for (i = 0; i < len / 2; i++)
 		{
 			temp = arr[i];
-			arr[len - i - 1] = arr[i];
-			arr[i] = temp;
+			arr[i] = arr[len - i - 1];
+			arr[len - i - 1] = temp;
 		}
 	}
 }
