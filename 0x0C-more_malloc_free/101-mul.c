@@ -45,7 +45,7 @@ int *str_to_int_arr(char *str, int len)
 		return (NULL);
 	for (i = 0; i < len; i++)
 	{
-		num_array[i] = atoi(str[i]);
+		num_array[i] = '0' - str[i];
 	}
 	return (num_array);
 }
