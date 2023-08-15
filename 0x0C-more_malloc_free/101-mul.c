@@ -50,15 +50,13 @@ int *str_to_int_arr(char *str, int len)
 	return (num_array);
 }
 
-void rev_array(int *arr)
+void rev_array(int *arr, int len)
 {
-	unsigned int i, len;
+	int i;
 	int temp;
 
 	if (arr)
 	{
-		len = sizeof(arr) / sizeof(int);
-
 		for (i = 0; i < len / 2; i++)
 		{
 			temp = arr[i];
