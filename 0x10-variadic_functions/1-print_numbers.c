@@ -12,6 +12,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list nums;
 	unsigned int count = 0;
 
+	if (separator == NULL)
+		separator = "";
 	va_start(nums, n);
 	while (count < n)
 	{
