@@ -5,8 +5,6 @@
  * operator to use on the arguments
  *
  * @s: The charactor for the operator
- * @a: The first number
- * @b: The second number
  * Return: A pointer to the function to use
  */
 
