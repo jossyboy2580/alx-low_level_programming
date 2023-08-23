@@ -11,20 +11,13 @@
 int main(int argc, char *argv[])
 {
 	int (*op)(int, int);
-<<<<<<< HEAD
-	int a;
-	int b;
-=======
 	int result, a, b;
->>>>>>> 9968ad34ee6656d9b0331038a6d98f3bfd4df3b4
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
 	if (strlen(argv[2]) != 1 || argv[2] == NULL)
 	{
 		printf("Error\n");
@@ -33,16 +26,12 @@ int main(int argc, char *argv[])
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	op = get_op_func(argv[2]);
-<<<<<<< HEAD
 	if (op == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	return (op(a, b));
-=======
 	result = op(a, b);
 	printf("%d\n", result);
 	return (0);
->>>>>>> 9968ad34ee6656d9b0331038a6d98f3bfd4df3b4
 }
