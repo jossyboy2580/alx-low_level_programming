@@ -33,19 +33,6 @@ size_t print_list(const list_t *h)
 {
 	size_t count = 0;
 
-	/**
-	if (h == NULL)
-		return (count);
-	count++;
-	print_node(h->str);
-	nex = h->next;;
-	while (nex != NULL)
-	{
-		count++;
-		print_node(nex->str);
-		nex = nex->next;
-	}
-	*/
 	print_node(h, &count);
 	return (count);
 }
