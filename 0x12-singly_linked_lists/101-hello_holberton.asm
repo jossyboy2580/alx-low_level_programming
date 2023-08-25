@@ -13,7 +13,6 @@ lea rsi, [name]          ; Load name string address into rsi
 call printf             ; Call printf
 add rsp, 8               ; Restore stack alignment
 
-; Set exit status (0 for success)
 xor rdi, rdi
 
 ; Call exit system call
