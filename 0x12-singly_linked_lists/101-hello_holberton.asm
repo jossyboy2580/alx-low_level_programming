@@ -12,6 +12,5 @@ lea rdi, [format]        ; Load format string address into rdi
 lea rsi, [name]          ; Load name string address into rsi
 call printf             ; Call printf
 add rsp, 8               ; Restore stack alignment
-mov rax, 60              ; Syscall number for exit = 60
-xor rdi, rdi             ; Exit status 0 for success
-syscall
+ret
+
