@@ -9,8 +9,8 @@
 
 void free_list(list_t *head)
 {
-	list_t current = head;
-	list_t nexter;
+	list_t *current = head;
+	list_t *nexter;
 
 	while (current)
 	{
