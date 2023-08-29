@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index Get the node at the index with this func
+ * get_nodeint_at_index - Get the node at the index with this func
  *
  * @head: The head of the list
  * @index: The index we want to fetch
