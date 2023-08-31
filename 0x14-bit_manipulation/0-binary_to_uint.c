@@ -16,6 +16,24 @@ int is_binary(char c)
 }
 
 /**
+ * raise - Raise a number to a power
+ *
+ * @base: the base of the exponentiation
+ * @exp: the power
+ * Return: The result
+ */
+
+unsigned int raise(unsigned int base, int exp)
+{
+	unsigned int result = 1;
+	int i;
+
+	for (i = 0; i < exp; i++)
+		result *= base;
+	return (result);
+}
+
+/**
  * binary_to_uint - This program converts a binary number to an
  * unsigned int
  *
@@ -38,7 +56,7 @@ unsigned int binary_to_uint(const char *b)
 				decimal_eqv = 0;
 				break;
 			}
-			decimal_eqv += (b[i] - '0') * (2 ** power--);
+			decimal_eqv += (b[i] - '0') * (raise(2, power--));
 			i++;
 		}
 	}
