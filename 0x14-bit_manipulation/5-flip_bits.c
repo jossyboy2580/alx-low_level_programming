@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * flib_bits - Number of bits we need to flip to get one num from
+ * flip_bits - Number of bits we need to flip to get one num from
  * thw other
  *
  * @m: The first number
- * @b: The second number
+ * @n: The second number
  * Return: The number of bits we need to flip
  */
 
