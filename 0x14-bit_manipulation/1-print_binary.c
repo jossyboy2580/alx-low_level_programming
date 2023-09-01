@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -9,5 +11,13 @@
 
 void print_binary(unsigned long int n)
 {
-	printf("%b\n", n);
+	char *s;
+	int i = 0;
+
+	asprintf(s, "%b\n", n);
+	while (s[i] != '\0')
+	{
+		_putchar(s[i]);
+		i++;
+	}
 }
