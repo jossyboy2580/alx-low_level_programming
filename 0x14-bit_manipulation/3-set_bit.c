@@ -12,6 +12,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int shifted;
 
+	if (n == NULL)
+		return (-1);
 	shifted = 1;
 	shifted <<= index;
 	*n = *n | shifted;
