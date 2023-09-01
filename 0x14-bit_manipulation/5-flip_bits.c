@@ -18,7 +18,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	while (n != 0 || m != 0)
 	{
-		if (n & mask == m & mask)
+		if (n & mask != m & mask)
 			flips++;
 		n >>= 1;
 		m >>= 1;
