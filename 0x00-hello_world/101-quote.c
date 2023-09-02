@@ -12,10 +12,8 @@
 int main(void)
 {
 	const char *part1 = "and that piece of art is useful";
-	char c = '"';
-	const char *part2 = " - Dora Korper, 2015-10-19\n";
+	const char *part2 = "\" - Dora Korper, 2015-10-19\n";
 	write(2, part1, strlen(part1));
-	write(2, c, 1);
 	write(2, part2, strlen(part2));
 	return (1);
 }
