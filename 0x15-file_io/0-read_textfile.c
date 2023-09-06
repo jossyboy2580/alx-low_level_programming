@@ -19,12 +19,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	if (my_file == -1)
 	{
-		return (-1);
+		return (0);
 	}
 	bytes_read = read(my_file, buffer, letters);
+	if (bytes_read == -1)
+		return (0);
 	buffer[bytes_read + 1] = '\0';
 	bytes_written = write(1, buffer, bytes_read);
-	if (bytes_written < 0)
+	if (bytes_written == -1)
 		return (0);
 	return (bytes_written);
 }
