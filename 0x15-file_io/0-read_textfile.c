@@ -7,7 +7,7 @@
  *    * @filename: The name of the file we wish to read
  *     * @letters: The number of letters we are to read
  *      * Return: the number of written letters
- *       */
+ */
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -19,7 +19,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	if (my_file == -1)
 	{
-		return -1;
+		return (-1);
 	}
 	bytes_read = read(my_file, buffer, letters);
 	buffer[bytes_read + 1] = '\0';
