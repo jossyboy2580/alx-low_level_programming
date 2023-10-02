@@ -22,7 +22,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		read_count = read(file_id, reading, letters);
 		if (read_count != -1)
 		{
-			write_count = write(1, reading, read_count);
+			write_count = write(STDOUT_FILENO, reading, read_count);
 			if (write_count != read_count || write_count == -1)
 				return (0);
 		}
