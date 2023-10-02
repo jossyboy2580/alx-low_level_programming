@@ -23,6 +23,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (read_count != -1)
 		{
 			write_count = write(1, reading, read_count);
+			if (write_count != read_count)
+				return (0);
 		}
 	}
 	return (write_count);
