@@ -27,5 +27,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 				return (0);
 		}
 	}
+	close(file_id);
 	return (write_count);
 }
