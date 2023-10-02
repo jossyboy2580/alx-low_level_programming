@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * append_text_to_file - A function that appends text to the end of
@@ -21,7 +22,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	if (text_content != NULL)
 	{
-		write(file_des, text_content, strlen(text_content));
+		write_count = write(file_des, text_content, strlen(text_content));
 		if (write_count == -1)
 			return (-1);
 	}
