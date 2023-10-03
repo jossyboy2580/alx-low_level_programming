@@ -27,12 +27,10 @@ int move_file(char *src, char *dest)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 	}
-	do
-	{
+	do {
 		read_count = read(src_fd, buf, 1024);
 		write(dest_fd, buf, read_count);
-	}
-	while (read_count >= 1024);
+	} while (read_count >= 1024);
 	clos_src = close(src_fd);
 	if (clos_src == -1)
 	{
@@ -42,8 +40,8 @@ int move_file(char *src, char *dest)
 	clos_des = close(dest_fd);
 	if (clos_des == -1)
 	{
-		  dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest_fd);
-		  exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest_fd);
+		exit(100);
 	}
 	return (1);
 }
