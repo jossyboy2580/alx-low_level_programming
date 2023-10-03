@@ -34,13 +34,13 @@ int move_file(char *src, char *dest)
 	}
 	while (read_count >= 1024);
 	clos_src = close(src_fd);
-	if (close_src == -1)
+	if (clos_src == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src_fd);
 		exit(100);
 	}
 	clos_des = close(dest_fd);
-	if (close_des == -1)
+	if (clos_des == -1)
 	{
 		  dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest_fd);
 		  exit(100);
