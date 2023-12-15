@@ -11,9 +11,6 @@
 
 int main(void)
 {
-	const char *part1 = "and that piece of art is useful";
-	const char *part2 = "\" - Dora Korper, 2015-10-19\n";
-	write(2, part1, strlen(part1));
-	write(2, part2, strlen(part2));
+	write(2, "and that piece of art is useful\" - Dora Korper, 2015-10-19\n", 59 );
 	return (1);
 }
