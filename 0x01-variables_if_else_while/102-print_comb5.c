@@ -19,7 +19,7 @@ int main(void)
 			{
 				if (k < i)
 					continue;
-				for (l = 48; l <= 57; l++ )
+				for (l = 48; l <= 57; l++)
 				{
 					if (i >= k && (i + j > k + l))
 						continue;
