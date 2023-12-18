@@ -8,19 +8,23 @@
 
 int main(void)
 {
-	int i = 48, j = 48;
+	int i, j;
 	int k, l;
 
 	for (i = 48; i <= 57; i++)
 	{
 		for (j = 48; j <= 57; j++)
 		{
-			k = i;
-			l = j + 1;
-			while (k <= 57)
+			for (k = 48; k <= 57; k++)
 			{
-				while (l <= 57)
+				if (k < i)
+					continue;
+				for (l = 48; l <= 57; l++ )
 				{
+					if (i >= k && (i + j > k + l))
+						continue;
+					if (i == k && j == l)
+						continue;
 					putchar(i);
 					putchar(j);
 					putchar(' ');
@@ -31,9 +35,7 @@ int main(void)
 						putchar(',');
 						putchar(' ');
 					}
-					l++;
 				}
-				k++;
 			}
 		}
 	}
