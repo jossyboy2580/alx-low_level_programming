@@ -11,7 +11,7 @@
 int dig_count(int n)
 {
 	int count = 0;
-	
+
 	while (n > 0)
 	{
 		count++;
@@ -21,9 +21,11 @@ int dig_count(int n)
 }
 
 /**
- * powered - A function to raise ten to a certain power according to nu of digits
+ * powerer - A function to raise ten to a certain power
+ * according to nu of digits
  *
- * @digits: How many digits are in the number, meaning the power to raise ten to
+ * @digits: How many digits are in the number, meaning
+ * the power to raise ten to
  * Return: The powered version of the base
  */
 
@@ -39,7 +41,7 @@ int powerer(int digits)
 	return (identity);
 }
 
-/*
+/**
  * print_number - A function to print some numbers
  *
  * @n: the number we want to print
