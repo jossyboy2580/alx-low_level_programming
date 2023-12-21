@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-/**
- * is_prime - function to check if a number is prime
- *
- * @n: number we want to check
- * Return: either 1 if it is a prime
- * or 0 if it is not
- */
-
 int is_prime(unsigned long long int n) {
 	if (n < 2) return 0; // Numbers less than 2 are not prime
 	if (n == 2) return 1; // 2 is prime
@@ -21,11 +13,6 @@ int is_prime(unsigned long long int n) {
 	}
 	return 1; // Prime number
 }
-
-/**
- * main - entry point of the program
- * Return: the return value of the program
- */
 
 int main(void) {
 	unsigned long long int number = 612852475143;
