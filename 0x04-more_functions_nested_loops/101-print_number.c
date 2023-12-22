@@ -61,7 +61,10 @@ void print_number(int n)
 		negative = 1;
 		_putchar('-');
 		if (n == -1)
-			n = 0;
+		{
+			negative = 0;
+			n = -n;
+		}
 		else
 			n = -1 * (n + 1);
 	}
