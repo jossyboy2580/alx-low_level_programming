@@ -60,7 +60,10 @@ void print_number(int n)
 	{
 		negative = 1;
 		_putchar('-');
-		n = -1 * (n + 1);
+		if (n == -1)
+			n = -n;
+		else
+			n = -1 * (n + 1);
 	}
 	digits = dig_count(n);
 	powered = powerer(digits);
