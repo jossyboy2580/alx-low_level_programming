@@ -49,7 +49,7 @@ int powerer(int digits)
 
 void print_number(int n)
 {
-	int digits, dig, i, powered;
+	int digits, dig, i, powered, negative = 0;
 
 	if (n == 0)
 	{
@@ -58,8 +58,9 @@ void print_number(int n)
 	}
 	if (n < 0)
 	{
+		negative = 1;
 		_putchar('-');
-		n = -1 * n;
+		n = -1 * (n + 1);
 	}
 	digits = dig_count(n);
 	powered = powerer(digits);
@@ -68,6 +69,8 @@ void print_number(int n)
 		dig = n / powered;
 		n = n % powered;
 		powered /= 10;
+		if (i == digits - 1 && negative)
+			dig++;
 		_putchar('0' + dig);
 	}
 }
