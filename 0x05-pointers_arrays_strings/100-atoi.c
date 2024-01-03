@@ -1,34 +1,55 @@
-#include "main.h"
+#include "main.h" 
 
 /**
- * _atoi - Function to convert the string to an integer
+ * _atoi - A function to try out an alternative technique for converting a string to an
+ * integer
  *
- * @s: the string to convert
- * Return: 1 if successful, 0 if otherwise
+ * @s: The string that contains the set of numbers we want to convert to an integer
+ * Return: An integer representation of the string
  */
 
 int _atoi(char *s)
 {
+	int len = 0;
+	int seen_space = 0;
 	int result = 0;
-	long sign = 1;
-	int i = 0;
+	int multiplier = 1;
 
-	/* Skip leading white space */
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		i++;
+	/* Get the length of the string */
+	while (s[len] != '\0')
+		len++;
+	/* Reduce the length by one to enable us index the last element */
+	len--;
 
-	/* Handle optional sign */
-	while (s[i] == '+' || s[i] == '-')
+	/* Start looping from the back and add up numbers to the result*/
+	while (len > -1)
 	{
-		sign = (s[i] == '-') ? -1 : 1;
-		i++;
+		if (s[len] == '-')
+		{
+			result *= -1;
+		}
+		else if (s[len] >= 48 && s[len] <= 57)
+		{
+			if (seen_space)
+			{
+				result = 0;
+				multiplier = 1;
+				result = result + ((s[len] - '0') * multiplier);
+				multiplier *= 10;
+				seen_space = 0;
+			}
+			else
+			{
+				result = result + ((s[len] - '0') * multiplier);
+				multiplier *= 10;
+			}
+		}
+		else
+		{
+			if (!seen_space)
+				seen_space = 1;
+		}
+		len--;
 	}
-
-	/* Convert digits to integer values */
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		result = result * 10 + (s[i] - '0');
-		i++;
-	}
-	return (sign * result);
+	return (result);
 }
