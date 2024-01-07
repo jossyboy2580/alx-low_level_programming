@@ -41,32 +41,27 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int len_n1 = strlen(n1);
 	int len_n2 = strlen(n2);
 	int first_num, second_num;
-	int enough_len = len_n1 > len_n2 ? len_n1 + 1 : len_n2 + 1;
 	int carry = 0, sum;
 	int index = 0;
 
-	if (enough_len <= size_r)
+	len_n1--;
+	len_n2--;
+	while (len_n1 >= 0 || len_n2 >= 0)
 	{
-		len_n1--;
-		len_n2--;
-		while (len_n1 >= 0 || len_n2 >= 0)
-		{
-			if (len_n1 < 0)
-				first_num = 0;
-			else
-				first_num = n1[len_n1--] - '0';
-			if (len_n2 < 0)
-				second_num = 0;
-			else
-				second_num = n2[len_n2--] - '0';
-			sum = first_num + second_num + carry;
-			r[index++] = (sum % 10) + '0';
-			carry = sum / 10;
-		}
-		r[index] = '\0';
+		if (len_n1 < 0)
+			first_num = 0;
+		else
+			first_num = n1[len_n1--] - '0';
+		if (len_n2 < 0)
+			second_num = 0;
+		else
+			second_num = n2[len_n2--] - '0';
+		sum = first_num + second_num + carry;
+		if (index + 2 > size_r)
+			return (0);
+		r[index++] = (sum % 10) + '0';
+		carry = sum / 10;
 	}
-	else
-		return ("0");
 	r[index] = '\0';
 	rev_str(r, index);
 	return (r);
