@@ -63,6 +63,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		carry = sum / 10;
 		if (carry)
 		{
+			if (index + 2 > size_r)
+				return (0);
 			r[index + 1] = carry;
 			if (len_n1 < 0 && len_n2 < 0)
 				index++;
