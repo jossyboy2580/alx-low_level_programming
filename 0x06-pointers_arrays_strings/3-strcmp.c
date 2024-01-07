@@ -25,7 +25,7 @@ int _strcmp(char *s1, char *s2)
 			return (1);
 		ascii_difference = s1[i] - s2[i];
 		if (ascii_difference != 0)
-		       return (ascii_difference);
+			return (ascii_difference);
 		i++;
 	}
 	if (s2[i] != '\0')
