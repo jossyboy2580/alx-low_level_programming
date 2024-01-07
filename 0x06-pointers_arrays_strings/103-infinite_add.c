@@ -61,6 +61,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			return (0);
 		r[index++] = (sum % 10) + '0';
 		carry = sum / 10;
+		if (carry)
+		{
+			r[index + 1] = carry;
+			if (len_n1 < 0 && len_n2 < 0)
+				index++;
+		}
 	}
 	r[index] = '\0';
 	rev_str(r, index);
