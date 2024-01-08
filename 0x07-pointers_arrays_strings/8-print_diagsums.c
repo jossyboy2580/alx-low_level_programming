@@ -15,7 +15,7 @@ void print_diagsums(int *a, int size)
 
 	for (i = 0; i < size; i++)
 	{
-		maj_sum += a[i * 4];
+		maj_sum += a[i * (size + 1)];
 	}
 	for (i = 0; i < size; i++)
 		min_sum += a[(size - 1) + i * (size - 1)];
