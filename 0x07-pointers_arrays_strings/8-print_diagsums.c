@@ -10,11 +10,14 @@
 void print_diagsums(int *a, int size)
 {
 	int i;
-	int sum = 0;
+	int maj_sum = 0;
+	int min_sum = 0;
 
 	for (i = 0; i < size; i++)
 	{
-		sum += a[i * 4];
+		maj_sum += a[i * 4];
 	}
-	printf("%d\n", sum);
+	for (i = 0; i < size; i++)
+		min_sum += a[(size - 1) + i * (size - 1)];
+	printf("%d, %d\n", maj_sum, min_sum);
 }
