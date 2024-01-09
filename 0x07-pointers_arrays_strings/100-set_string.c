@@ -9,6 +9,6 @@
 
 void set_string(char **s, char *to)
 {
-	if (s && to)
+	if (s)
 		*s = to;
 }
