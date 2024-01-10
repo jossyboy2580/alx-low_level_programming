@@ -17,7 +17,6 @@ int check_pal(char *start, char *end)
 int is_palindrome(char *s)
 {
 	int len = strlen(s);
-	int pal;
 
 	if (s == NULL)
 		return (0);
