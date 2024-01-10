@@ -1,6 +1,16 @@
 #include <string.h>
 #include "main.h"
 
+/**
+ * check_pal - The recursive palindrome checker
+ *
+ * @start: The first edge of the string
+ * @end: The last edge of the string
+ *
+ * Return: 1 or 0 if it is palindrome or not
+ * respectively
+ */
+
 int check_pal(char *start, char *end)
 {
 	if (start == end)
@@ -13,6 +23,15 @@ int check_pal(char *start, char *end)
 	}
 	return (0);
 }
+
+/**
+ * is_palindrome - A function that calls a recursive palindrome
+ * checker
+ *
+ * @s: The string we want to check if it's a palindrome
+ * Return: Either 1 if its a palindrome or
+ * 0 if it is not
+ */
 
 int is_palindrome(char *s)
 {
