@@ -1,5 +1,7 @@
 #include "main.h"
 
+int compare_strings(char *s1, char *s2, int *wild);
+
 /**
  * wildcmp - A function that recursively checks if two strings are
  * the same
