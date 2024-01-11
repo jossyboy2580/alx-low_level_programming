@@ -10,8 +10,6 @@
 
 int check_prime(int cur, int n)
 {
-	if (n < 4 && n > 1)
-		return (1);
 	if (cur > (n / 2))
 		return (1);
 	if (n % cur == 0)
@@ -30,5 +28,7 @@ int check_prime(int cur, int n)
 
 int is_prime_number(int n)
 {
+	if (n < 2)
+		return (0);
 	return (check_prime(2, n));
 }
