@@ -63,6 +63,8 @@ int compare_strings(char *s1, char *s2, int *wild, int *tilt)
 		{
 			if (!(*wild))
 				*wild = 1;
+			if (!(*tilt))
+				*tilt = -1;
 			return (compare_strings(s1, s2 + 1, wild, tilt));
 		}
 		else
