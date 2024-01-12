@@ -39,10 +39,10 @@ int compare_strings(char *s1, char *s2, int *wild, int *tilt)
 		if (*s1 == '\0')
 		{
 			*tilt = 1;
-			return (compare_strings(s1, s2, wild, tilt));
+			return (compare_strings(s1 - 1, s2, wild, tilt));
 		}
 		else
-			return (compare_strings(s1, s2, wild, tilt));
+			return (compare_strings(s1 + 1, s2, wild, tilt));
 	}
 	else if (*tilt == 1)
 	{
@@ -55,35 +55,34 @@ int compare_strings(char *s1, char *s2, int *wild, int *tilt)
 		else
 			return (compare_strings(s1 - 1, s2, wild, tilt));
 	}
-	if (*s1 == '\0' && *s2 == '\0')
-		return (1);
-	if (*s2 == '*')
-	{
-		if (!(*wild))
-			*wild = 1;
-		return (compare_strings(s1, s2 + 1, wild, tilt));
-	}
 	else
 	{
-		if (*s2 == '\0')
+		if (*s1 == '\0' && *s2 == '\0')
 			return (1);
-		else if (*s1 == *s2)
+		if (*s2 == '*')
 		{
-			return (compare_strings(s1 + 1, s2 + 1, wild, tilt));
-		}
-		else if (*wild)
-		{
-			return (compare_strings(s1 + 1, s2, wild, tilt));
+			if (!(*wild))
+				*wild = 1;
+			return (compare_strings(s1, s2 + 1, wild, tilt));
 		}
 		else
 		{
-			if (*wild)
+			if (*s2 == '\0')
+				return (1);
+			else if (*s1 == *s2)
 			{
-				*tilt = -1;
-				return (compare_strings(s1 + 1, s2, wild, tilt));
+				return (compare_strings(s1 + 1, s2 + 1, wild, tilt));
 			}
 			else
-				return (0);
+			{
+				if (*wild)
+				{
+					*tilt = -1;
+					return (compare_strings(s1 + 1, s2, wild, tilt));
+				}
+				else
+					return (0);
+			}
 		}
 	}
 }
