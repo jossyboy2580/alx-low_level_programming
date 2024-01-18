@@ -65,9 +65,7 @@ char *make_str(char *str, int start, int end)
 
 char **strtow(char *str)
 {
-	int i;
-	int str_len;
-	int char_found = 0;
+	int i, str_len, char_found = 0;
 	int start;
 	int count = 0;
 	char **str_arr = NULL;
