@@ -3,6 +3,16 @@
 #include <stdlib.h>
 #include "main.h"
 
+/**
+ * _isspace - Function to check if a character is a space char
+ * either tab, empty space, vertical tab, carriage return or
+ * a newline character
+ *
+ * @c: The character we want to check
+ * Return: return value is 1 if it is a space character
+ * and 0 if it is not
+ */
+
 int _isspace(char c)
 {
 	if (c == ' ' ||
@@ -16,6 +26,17 @@ int _isspace(char c)
 		return (0);
 }
 
+/**
+ * make_str - A function that allocates memory for a string and fills it up
+ * with characters from a given string
+ *
+ * @str: The string we want to select the chars from
+ * @start: index on str where our first char will come from and start from
+ * @end: index of the last char in str to fill into new string
+ *
+ * Return: The newly malloced string
+ */
+
 char *make_str(char *str, int start, int end)
 {
 	int len = end - start;
@@ -25,14 +46,11 @@ char *make_str(char *str, int start, int end)
 	result = malloc(sizeof(char) * (len + 1));
 	if (result == NULL)
 		return (NULL);
-	else
+	for (i = 0; i < len; i++)
 	{
-		for (i = 0; i < len; i++)
-		{
-			result[i] = str[start++];
-		}
-		result[i] = '\0';
+		result[i] = str[start++];
 	}
+	result[i] = '\0';
 	return (result);
 }
 
@@ -47,51 +65,40 @@ char *make_str(char *str, int start, int end)
 
 char **strtow(char *str)
 {
-	char **str_arr = NULL;
-	char *new;
-	int count = 0;
-	int lenstr = strlen(str);
-	int start_n;
+	int i;
+	int str_len = strlen(str);
 	int char_found = 0;
-	int moving_node = 0;
+	int start;
+	int count = 0;
+	char **str_arr = NULL;
+	char *new = NULL;
 
-	if (str == NULL || lenstr == 0)
-		return (NULL);
-	printf("%d\n", lenstr);
-	while (moving_node <= lenstr)
+	for (i = 0; i <= str_len; i++)
 	{
-		printf("In while loop\n");
-		if (_isspace(str[moving_node]) || str[moving_node] == '\0')
+		if (str[i] == '\0' || _isspace(str[i]))
 		{
-			printf("In if check for space\n");
 			if (char_found)
 			{
-				str_arr = realloc(str_arr, sizeof(char *) * ++count);
+				new = make_str(str, start, i);
+				str_arr = realloc(str_arr, ++count);
 				if (str_arr == NULL)
-					return (NULL);
-				else
 				{
-					new = make_str(str, start_n, moving_node);
-					if (new == NULL)
-						return (NULL);
-					str_arr[count - 1] = new;
+					free(new);
+					return (NULL);
 				}
+				str_arr[count - 1] = new;
 				char_found = 0;
 			}
 		}
 		else
 		{
-			if (char_found)
-				continue;
-			else
+			if (!char_found)
 			{
-				start_n = moving_node;
+				start = i;
 				char_found = 1;
 			}
 		}
-		moving_node++;
 	}
-	free(new);
 	str_arr[count] = NULL;
 	return (str_arr);
 }
