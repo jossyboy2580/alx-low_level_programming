@@ -66,8 +66,7 @@ char *make_str(char *str, int start, int end)
 char **strtow(char *str)
 {
 	int i, str_len, char_found = 0;
-	int start;
-	int count = 0;
+	int start, count = 0;
 	char **str_arr = NULL;
 	char *new = NULL;
 
@@ -102,6 +101,8 @@ char **strtow(char *str)
 			}
 		}
 	}
+	if (count < 1)
+		return (NULL);
 	str_arr[count] = NULL;
 	return (str_arr);
 }
