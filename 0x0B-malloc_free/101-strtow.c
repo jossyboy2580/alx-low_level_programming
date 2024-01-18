@@ -80,7 +80,7 @@ char **strtow(char *str)
 			if (char_found)
 			{
 				new = make_str(str, start, i);
-				str_arr = realloc(str_arr, ++count);
+				str_arr = realloc(str_arr, sizeof(char *) * ++count);
 				if (str_arr == NULL)
 				{
 					free(new);
