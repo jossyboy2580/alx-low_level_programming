@@ -66,13 +66,18 @@ char *make_str(char *str, int start, int end)
 char **strtow(char *str)
 {
 	int i;
-	int str_len = strlen(str);
+	int str_len;
 	int char_found = 0;
 	int start;
 	int count = 0;
 	char **str_arr = NULL;
 	char *new = NULL;
 
+	if (str == NULL)
+		return (NULL);
+	str_len = strlen(str);
+	if (str_len == 0)
+		return (NULL);
 	for (i = 0; i <= str_len; i++)
 	{
 		if (str[i] == '\0' || _isspace(str[i]))
