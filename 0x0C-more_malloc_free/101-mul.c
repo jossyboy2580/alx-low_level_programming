@@ -30,8 +30,8 @@ char *make_and_prefill_mem(int height, unsigned int len)
 
 char *add_prod_vec(char **prod_vec)
 {
-	int i = 0;
-	int j;
+	unsigned int i = 0;
+	unsigned int j;
 	unsigned int len = 0;
 	char *sum_result;
 	int sum = 0, carry = 0;
