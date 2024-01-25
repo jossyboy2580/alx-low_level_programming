@@ -3,68 +3,137 @@
 #include <string.h>
 #include <stdio.h>
 
-
-
-
 /**
- * is_digit - A function to chexk if a string is made up of
- * only numbers
+ * make_and_prefill_mem = This function allocates memory for storing
+ * integer characters and prefils them with zeroes
  *
- * @str: The string to check
+ * @height: The height of the present iteration
+ * @len: The length of the string
+ * Return: A pointer to a memory space
  */
 
-int is_digit(char *str)
+char *make_and_prefill_mem(int height, unsigned int len)
 {
+	char *mem;
 	int i = 0;
 
-	while (str[i] != '\0')
+	mem = malloc(sizeof(char) * (height + len + 2));
+	if (!mem)
+		return (NULL);
+	while (i < height)
 	{
-		if (str[i] > 57 || str[i] < 48)
-			return (0);
+		mem[i] = '0';
+		i++;
 	}
-	return (1);
+	return (mem);
+}
+
+char *add_prod_vec(char **prod_vec)
+{
+	int i = 0;
+	int j;
+	unsigned int len = 0;
+	char *sum_result;
+	int sum = 0, carry = 0;
+
+	while (prod_vec[i] != NULL)
+	{
+		if (strlen(prod_vec[i]) > len)
+			len = strlen(prod_vec[i]);
+		i++;
+	}
+	i = 0;
+	sum_result = malloc(sizeof(char) * (len + 2));
+	if (!sum_result)
+		return (NULL);
+	for (j = 0; j < len; j++)
+	{
+		sum = 0;
+		i = 0;
+		while (prod_vec[i] != NULL)
+		{
+			if (strlen(prod_vec[i]) > j)
+			{
+				sum += prod_vec[i][j] - '0';
+			}
+			i++;
+		}
+		sum += carry;
+		sum_result[j] = (sum % 10) + '0';
+		carry = sum / 10;
+	}
+	/*
+	if (carry >= 1)
+		sum_result[j++] = carry + '0';
+	*/
+	sum_result[j] = '\0';
+	return (sum_result);
 }
 
 /**
- * str_to_int_arr - A function that converts a string made up of
- * integers to an array of integers
+ * mul_result - A function that multiplies two numbers and returns an array
+ * containing the quotient, remainder
  *
- * @str: The string we want to convert
- * @len: The length of the string
- * Return: An array of integers if the operation is successful
- * and NULL if not
+ * @a: The first number we want to multiply
+ * @b: The second number we want to multiply
+ * @carry: The carry that will be added to the product
+ *
+ * Return: An array containing the quotient and the remainder
  */
 
-int *str_to_int_arr(char *str, int len)
+char *mul_result(int a, int b, int carry)
 {
-	int *num_array;
-	int i;
+	char *result_arr;
+	int product;
 
-	num_array = malloc(sizeof(int) * len);
-	if (!num_array)
+	result_arr = malloc(sizeof(char) * 2);
+	if (!result_arr)
 		return (NULL);
-	for (i = 0; i < len; i++)
-	{
-		num_array[i] = str[i] - '0';
-	}
-	return (num_array);
+	product = (a * b) + carry;
+	result_arr[0] = (product % 10) + '0';
+	result_arr[1] = (product / 10) + '0';
+	return (result_arr);
 }
 
-void rev_array(int *arr, int len)
+/**
+ * is_digit - A function to check if a character is a digit
+ *
+ * @c: The character we want to check
+ * Return: Either 1 if it is a character or 0 if not
+ */
+
+int is_digit(char c)
 {
-	int i;
-	int temp;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
-	if (arr)
+/**
+ * rev_string - A string reversing function
+ *
+ * @s: The string we want to reverse
+ */
+
+void rev_string(char *s)
+{
+	int len = 0, i, half;
+	char temp;
+
+	while (s[len] != '\0')
+		len++;
+
+	half = len / 2;
+	if (len % 2 != 0)
+		half = (len - 1) / 2;
+	for (i = 0; i < half; i++)
 	{
-		for (i = 0; i < len / 2; i++)
-		{
-			temp = arr[i];
-			arr[i] = arr[len - i - 1];
-			arr[len - i - 1] = temp;
-		}
+		temp = *(s + i);
+		*(s + i) = *(s + (len - (i + 1)));
+		*(s + (len - (i + 1))) = temp;
 	}
 }
+
 /**
  * main - The entry point of a program that multiplies two numbers
  *
@@ -75,25 +144,77 @@ void rev_array(int *arr, int len)
 
 int main(int argc, char* argv[])
 {
-	int *first_arr;
-	int *second_arr;
-	int i;
+	int i, j, k;
+	int pos;
+	char *str1, *str2;
+	char carry = '0';
+	char *product;
+	char *result;
+	char *product_string = NULL;
+	char **prods_vec = NULL;
+	int remainder = 0;
 
 	if (argc != 3)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (!is_digit(argv[1]) || !is_digit(argv[2]))
+	str1 = argv[1];
+	str2 = argv[2];
+	rev_string(str1);
+	rev_string(str2);
+	prods_vec = malloc(sizeof(char *) * (strlen(str1) + 1));
+	if (!prods_vec)
 	{
-		printf("Error\n");
-		exit(98);
+		printf("Malloc of Product height failed!\n");
+		exit (98);
 	}
-	first_arr = str_to_int_arr(argv[1], strlen(argv[1]));
-	second_arr = str_to_int_arr(argv[2], strlen(argv[2]));
-	printf("Array 1\n");
-	printf("--------------------------\n");
-	for (i = 0; i < strlen(argv[1]); i++)
-		printf("%d", first_arr[i]);
-	printf("\n\n-------------++++++++--------------\n\n");
+	i = 0;
+	while (str1[i] != '\0')
+	{
+		if (!is_digit(str1[i]))
+		{
+			printf("Error\n");
+			exit(98);
+		}
+		product_string = make_and_prefill_mem(i, strlen(str2));
+		if (!product_string)
+		{
+			printf("Malloc of Product string failed!\n");
+		/*	free_vec(prods_vec, i); */
+			exit(98);
+		}
+		pos = i;
+		j = 0;
+		carry = '0';
+		while (str2[j] != '\0')
+		{
+			if (!is_digit(str2[j]))
+			{
+				printf("Error\n");
+		/*		free_vec(prods_vec, i); */
+				exit(98);
+			}
+			product = mul_result(str1[i] - '0', str2[j] - '0', carry - '0');
+			carry = product[1];
+			remainder = product[0];
+			free(product);
+			product_string[pos] = remainder;
+			product_string[pos + 1] = carry;
+			j++;
+			pos++;
+		}
+		product_string[pos + 2] = '\0';
+		for (k = 0; product_string[k] != '\0'; k++)
+		prods_vec[i] = product_string;
+		i++;
+	}
+	prods_vec[i] = NULL;
+	for (i = 0; prods_vec[i] != NULL; i++)
+	{
+	}
+	result = add_prod_vec(prods_vec);
+	rev_string(result);
+	printf("%s\n", result);
+	return (0);
 }
