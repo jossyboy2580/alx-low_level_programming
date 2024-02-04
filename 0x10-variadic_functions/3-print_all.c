@@ -13,7 +13,7 @@ void show_c(va_list val)
 }
 
 /**
- * show_c - Print a char arg
+ * show_i - Print an integer
  *
  * @val: variadic list
  */
@@ -24,7 +24,7 @@ void show_i(va_list val)
 }
 
 /**
- * show_c - Print a char arg
+ * show_f - Print a floating point arg
  *
  * @val: variadic list
  */
@@ -35,7 +35,7 @@ void show_f(va_list val)
 }
 
 /**
- * show_c - Print a char arg
+ * show_s - Print a string arg
  *
  * @val: variadic list
  */
@@ -60,7 +60,6 @@ void show_s(va_list val)
 void print_all(const char * const format, ...)
 {
 	va_list params;
-	char *word;
 	void (*fns[])(va_list) = {show_c, show_i, show_f, show_s};
 	char *allowed = "cifs";
 	unsigned int i, j;
