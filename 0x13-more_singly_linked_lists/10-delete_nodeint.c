@@ -25,10 +25,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 	while (new_head && i < index)
 	{
-		if (i == index - 2)
+		if (i == index - 1)
 		{
 			delete_me = new_head->next;
-			new_head->next = (new_head->next)->next;
+			new_head->next = new_head->next == NULL ? NULL : (new_head->next)->next;
 			free(delete_me);
 			return (1);
 		}
