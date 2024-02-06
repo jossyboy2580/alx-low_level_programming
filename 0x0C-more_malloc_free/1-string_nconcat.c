@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int get_min(int, int);
 /**
  * string_nconcat - A program to concatenate n bytes of string2
  * to string1
@@ -14,16 +13,17 @@ int get_min(int, int);
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int added = 0, upper_bound;
+	int added = 0;
 	unsigned int i = 0;
 	char *new_mem;
+	int extra;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	upper_bound = get_min(strlen(s2), n);
-	new_mem = malloc(sizeof(char) * (strlen(s1) + upper_bound + 1));
+	extra = strlen(s2) > n ? n : strlen(s2);
+	new_mem = malloc(sizeof(char) * (strlen(s1) +  extra + 1));
 	if (!new_mem)
 		return (NULL);
 	while (s1[i] != '\0')
@@ -33,28 +33,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		added++;
 	}
 	i = 0;
-	while (s2[i] != '\0')
+	while (s2[i] != '\0' && i < n)
 	{
 		new_mem[added] = s2[i];
 		i++;
 		added++;
-		if (i == n)
-			break;
 	}
 	new_mem[added] = '\0';
 	return (new_mem);
-}
-
-/**
- * get_min - A program to get the minimum of two ints
- * @a: First int
- * @b: Second int
- * Return: loweat of em
- */
-
-int get_min(int a, int b)
-{
-	if (a > b)
-		return (b);
-	return (a);
 }

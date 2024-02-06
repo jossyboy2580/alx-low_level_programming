@@ -27,7 +27,7 @@ char *argstostr(int ac, char **av)
 			len_all += len_indiv;
 		}
 	}
-	new = malloc(sizeof(char) * (len_all + (ac * 1)));
+	new = malloc(sizeof(char) * (len_all + 1 + (ac * 1)));
 	if (!new)
 		return (NULL);
 	for (i = 0; i < ac; i++)

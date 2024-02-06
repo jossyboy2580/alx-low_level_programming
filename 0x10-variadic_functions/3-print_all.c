@@ -2,23 +2,53 @@
 #include <stdlib.h>
 
 /**
- * is_valid_param - A function to check if a given parameter is amon
- * g the permitted ones
+ * show_c - Print a char arg
  *
- * @pa: the char we want to check
+ * @val: variadic list
  */
 
-int is_valid_param(char *pa)
+void show_c(va_list val)
 {
-	char *param_type = "cisf";
+	printf("%c", va_arg(val, int));
+}
 
-	while (*param_type != '\0')
+/**
+ * show_i - Print an integer
+ *
+ * @val: variadic list
+ */
+
+void show_i(va_list val)
+{
+	printf("%d", va_arg(val, int));
+}
+
+/**
+ * show_f - Print a floating point arg
+ *
+ * @val: variadic list
+ */
+
+void show_f(va_list val)
+{
+	printf("%f", va_arg(val, double));
+}
+
+/**
+ * show_s - Print a string arg
+ *
+ * @val: variadic list
+ */
+
+void show_s(va_list val)
+{
+	char *str = va_arg(val, char *);
+
+	if (str == NULL)
 	{
-		if (*pa == *param_type)
-			return (1);
-		param_type++;
+		str = "(nil)";
 	}
-	return (0);
+	printf("%s", str);
 }
 
 /**
@@ -30,39 +60,27 @@ int is_valid_param(char *pa)
 void print_all(const char * const format, ...)
 {
 	va_list params;
-	char *word;
-	unsigned int i = 0;
+	void (*fns[])(va_list) = {show_c, show_i, show_f, show_s};
+	char *allowed = "cifs";
+	unsigned int i, j;
+	int valid;
 
-	word = malloc(sizeof(char) * 98);
 	va_start(params, format);
+	i = 0;
 	while (format[i] != '\0')
 	{
-		if (is_valid_param(format[i]))
+		j = 0;
+		valid = 0;
+		while (allowed[j] != '\0')
 		{
-			switch (format[i])
+			if (format[i] == allowed[j])
 			{
-				case ('c')
-				{
-					printf("%c", va_arg(params, char) + '0');
-				}
-				case ('i')
-				{
-					printf("%d", va_arg(params, int));
-				}
-				case ('f')
-				{
-					printf("%f", va_arg(params, float));
-				}
-				case ('s')
-				{
-					word = va_arg(params, char *);
-					if (!word)
-						word = "(nil)";
-					printf("%s", word);
-				}
+				valid = 1;
+				fns[j](params);
 			}
+			j++;
 		}
-		if (i == strlen(format) - 1)
+		if ((i < strlen(format) - 1) && valid)
 			printf(", ");
 		i++;
 	}
