@@ -62,7 +62,7 @@ size_t print_recurse(listint_t *head, unsigned long **visited, size_t *count)
 		return (*count);
 	}
 	(*count)++;
-	printf("[%p] %d\n", (void *)head, head->n);
+	printf("%d\n", head->n);
 	add_visited(visited, (unsigned long)head, *count);
 	return (print_recurse(head->next, visited, count));
 }
