@@ -8,14 +8,14 @@
  * Return: 1 if it has been visited and 0 if it hasnt
  */
 
-int is_visited(listint_t **visited, listint_t *head, size_t *count)
+int is_visited(unsigned long **visited, unsigned long head, size_t *count)
 {
 	size_t i;
 
 	i = 0;
 	while (i < *count)
 	{
-		if (visited[i] == head)
+		if ((*visited)[i] == head)
 			return (1);
 		i++;
 	}
@@ -30,11 +30,11 @@ int is_visited(listint_t **visited, listint_t *head, size_t *count)
  * Return: 1 if it has been visited and 0 if it hasnt
  */
 
-void add_visited(listint_t ***visited, listint_t *head, size_t count)
+void add_visited(unsigned long **visited, unsigned long head, size_t count)
 {
-	listint_t **new_visited;
+	unsigned long *new_visited;
 
-	new_visited = realloc(*visited, sizeof(listint_t *) * (unsigned int)count);
+	new_visited = realloc(*visited, sizeof(unsigned long) * (unsigned int)count);
 	if (!new_visited)
 	{
 		free(*visited);
@@ -52,18 +52,18 @@ void add_visited(listint_t ***visited, listint_t *head, size_t count)
  * Return: Number of unique nodes
  */
 
-size_t print_recurse(listint_t *head, listint_t ***visited, size_t *count)
+size_t print_recurse(listint_t *head, unsigned long **visited, size_t *count)
 {
 	if (head == NULL)
 		return (*count);
-	if (is_visited(*visited, head, count))
+	if (is_visited(visited, (unsigned long)head, count))
 	{
 		printf("-> [%p] %d\n", (void *)head, head->n);
 		return (*count);
 	}
 	(*count)++;
 	printf("[%p] %d\n", (void *)head, head->n);
-	add_visited(visited, head, *count);
+	add_visited(visited, (unsigned long)head, *count);
 	return (print_recurse(head->next, visited, count));
 }
 
@@ -77,9 +77,13 @@ size_t print_recurse(listint_t *head, listint_t ***visited, size_t *count)
 
 size_t print_listint_safe(const listint_t *head)
 {
-	listint_t **visited = NULL;
-	size_t printed = 0;
+	unsigned long *visited = NULL;
+	size_t printed = 0, i;
 	listint_t *new_head = (listint_t *)head;
 
-	return (print_recurse(new_head, &visited, &printed));
+	printed = (print_recurse(new_head, &visited, &printed));
+	for (i = 0; i < printed; i++)
+		free((void *)visited[i]);
+	free(visited);
+	return (printed);
 }

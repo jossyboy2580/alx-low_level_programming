@@ -32,7 +32,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index);
 listint_t *reverse_listint(listint_t **head);
 size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
-void add_visited(listint_t ***visited, listint_t *head, size_t count);
-int is_visited(listint_t **visited, listint_t *head, size_t *count);
+void add_visited(unsigned long **visited, unsigned long head, size_t count);
+int is_visited(unsigned long **visited, unsigned long head, size_t *count);
 listint_t *find_listint_loop(listint_t *head);
 #endif
