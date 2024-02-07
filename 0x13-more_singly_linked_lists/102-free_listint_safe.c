@@ -14,9 +14,13 @@ size_t free_recurse(listint_t *head, listint_t ***visited, size_t *count)
 	listint_t *next;
 
 	if (head == NULL)
+	{
+		free(*visited);
 		return (*count);
+	}
 	if (is_visited(*visited, head, count))
 	{
+		free(*visited);
 		return (*count);
 	}
 	(*count)++;
