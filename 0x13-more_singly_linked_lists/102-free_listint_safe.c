@@ -9,7 +9,7 @@
  * Return: The count of all freed nodes
  */
 
-size_t free_recurse(listint_t *head, listint_t ***visited, size_t *count)
+size_t free_recurse(listint_t *head, unsigned long **visited, size_t *count)
 {
 	listint_t *next;
 
@@ -18,13 +18,13 @@ size_t free_recurse(listint_t *head, listint_t ***visited, size_t *count)
 		free(*visited);
 		return (*count);
 	}
-	if (is_visited(*visited, head, count))
+	if (is_visited(visited, (unsigned long)head, count))
 	{
 		free(*visited);
 		return (*count);
 	}
 	(*count)++;
-	add_visited(visited, head, *count);
+	add_visited(visited, (unsigned long)head, *count);
 	next = head->next;
 	free(head);
 	return (free_recurse(next, visited, count));
@@ -41,7 +41,7 @@ size_t free_recurse(listint_t *head, listint_t ***visited, size_t *count)
 size_t free_listint_safe(listint_t **h)
 {
 
-	listint_t **visited = NULL;
+	unsigned long *visited = NULL;
 	size_t freed = 0;
 	listint_t *new_head = *h;
 	*h = NULL;
