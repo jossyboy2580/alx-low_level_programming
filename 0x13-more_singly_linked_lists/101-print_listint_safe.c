@@ -55,10 +55,15 @@ void add_visited(listint_t ***visited, listint_t *head, size_t count)
 size_t print_recurse(listint_t *head, listint_t ***visited, size_t *count)
 {
 	if (head == NULL)
+	{
+		free(*visited);
 		return (*count);
+	}
 	if (is_visited(*visited, head, count))
 	{
+		free(*visited);
 		printf("-> [%p] %d\n", (void *)head, head->n);
+
 		return (*count);
 	}
 	(*count)++;
