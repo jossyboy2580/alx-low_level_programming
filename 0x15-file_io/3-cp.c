@@ -51,13 +51,13 @@ int main(int argc, char **argv)
 		}
 	} while (read_count >= 1024);
 	closed_read = close(file_from);
-	if (close_read == -1)
+	if (closed_read == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
-	close_write = close(file_to);
-	if (close_write == -1)
+	closed_write = close(file_to);
+	if (closed_write == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", file_to);
 		exit(100);
