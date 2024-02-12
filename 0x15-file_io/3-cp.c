@@ -14,7 +14,7 @@
 int main(int argc, char **argv)
 {
 	int file_from, file_to;
-	/* int closed_read, closed_write; */
+	int closed_read, closed_write;
 	ssize_t read_count, write_count;
 	char *buffer[BUFF_SIZE];
 
@@ -49,7 +49,6 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	} while (read_count >= 1024);
-	/*
 	closed_read = close(file_from);
 	if (closed_read == -1)
 	{
@@ -62,6 +61,5 @@ int main(int argc, char **argv)
 		dprintf(2, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
-	*/
 	return (0);
 }
