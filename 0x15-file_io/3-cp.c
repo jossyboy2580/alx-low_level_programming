@@ -2,6 +2,15 @@
 
 #define BUFF_SIZE 1024
 
+/**
+ * main - The entry point of a program that copies the content
+ * of one file to another
+ *
+ * @argc: The number of command line arguments used to invoke the program
+ * @argv: An array of the command line arguments
+ * Return: 1 always successful unles the program exits
+ */
+
 int main(int argc, char **argv)
 {
 	int file_from;
@@ -30,12 +39,14 @@ int main(int argc, char **argv)
 		read_count = read(file_from, buffer, BUFF_SIZE);
 		if (read_count == -1)
 		{
-
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		}
 		write_count = write(file_to, buffer, read_count);
 		if (write_count == -1)
 		{
-
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
 		}
 	} while (read_count >= 1024);
 	return (0);
