@@ -13,7 +13,8 @@
 
 int main(int argc, char **argv)
 {
-	int file_from, file_to, closed_read, closed_write;
+	int file_from, file_to;
+	/* int closed_read, closed_write; */
 	ssize_t read_count, write_count;
 	char *buffer[BUFF_SIZE];
 
