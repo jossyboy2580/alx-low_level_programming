@@ -34,12 +34,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buffer);
 		return (0);
 	}
-	write_count = write(1, buffer, read_count);
-	if (write_count == -1 || write_count != (ssize_t)letters)
+	write_count = write(STDOUT_FILENO, buffer, read_count);
+	if (write_count == -1)
 	{
 		free(buffer);
 		return (0);
 	}
 	free(buffer);
+	close(file_des);
 	return (write_count);
 }
