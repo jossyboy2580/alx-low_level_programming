@@ -10,7 +10,6 @@
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	unsigned int index_count = 0;
-	dlistint_t return_node = NULL;
 
 	while (head && head->prev != NULL)
 		head = head->prev;
