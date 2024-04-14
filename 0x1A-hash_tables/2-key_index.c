@@ -1,4 +1,4 @@
-#imclude "hash_tables.h"
+#include "hash_tables.h"
 
 /**
  * key_index - A function that takes a key and returns the index
@@ -13,6 +13,7 @@ unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
 	unsigned long int key_ind;
 
+	(void)size;
 	key_ind = hash_djb2(key);
 	return (key_ind);
 }
