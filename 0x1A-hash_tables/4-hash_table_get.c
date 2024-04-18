@@ -6,7 +6,7 @@
  *
  * @ht: The hast table
  * @key: The key to lookup
- * Return; The value associated with the key
+ * Return: The value associated with the key
  */
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
