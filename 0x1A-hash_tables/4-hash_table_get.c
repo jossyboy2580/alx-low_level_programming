@@ -1,6 +1,12 @@
 #include "hash_tables.h"
 
 /**
+ * hash_table_get - A function to get the value for a key
+ * in the hash table
+ *
+ * @ht: The hast table
+ * @key: The key to lookup
+ * Return; The value associated with the key
  */
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
