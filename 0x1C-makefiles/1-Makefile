@@ -1,6 +1,6 @@
 # Make rules to compile a school executable
-CC := gcc
-SRC := $(wildcard *.c)
+CC=gcc
+SRC=$(wildcard *.c)
 
 all: $(CC )$(SRC)
 	$(CC) $(SRC) -o school
