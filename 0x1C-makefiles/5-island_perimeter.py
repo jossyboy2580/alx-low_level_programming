@@ -20,20 +20,29 @@ def island_perimeter(grid):
         for j in range(width):
             if grid[i][j] == 0:
                 if not is_on_edge(grid, i, j):
-                    if is_isolated(grid, i, j): # using isolated func to check for a lake
-                        return
+
+                    # using isolated func to check for a lake
+
+                    if is_isolated(grid, i, j):
+                        return 0
             else:
-                if isolated: # Return if we already found a stand alone island
-                    return
+
+                #  Return if we already found a stand alone island
+                if isolated:
+                    return 0
+
                 if is_on_edge(grid, i, j):
-                    return
-                if is_isolated(grid, i, j): # Check if this cell is an island
+                    return 0
+
+                #  Check if this cell is an island
+                if is_isolated(grid, i, j):
                     isolated = 1
                 if is_inland(grid, i, j):
                     continue
                 else:
                     perimeter += peri(grid, i, j)
     return perimeter
+
 
 def is_inland(grid, i, j):
     """
@@ -52,13 +61,12 @@ def is_inland(grid, i, j):
         return 0
     return 1
 
+
 def is_isolated(grid, i, j):
     """
     check if the zone is isolated
     """
     zone = grid[i][j]
-    
-    # Todo: Check if the current node is on the edge to avoid an index error
 
     if grid[i - 1][j] == zone:
         return 0
@@ -69,6 +77,7 @@ def is_isolated(grid, i, j):
     if grid[i][j + 1] == zone:
         return 0
     return 1
+
 
 def peri(grid, i, j):
     """
@@ -93,7 +102,7 @@ def is_on_edge(grid, i, j):
     the edge of the grid
     """
 
-    if i == 0 or i == (len(grid) -1):
+    if i == 0 or i == (len(grid) - 1):
         return 1
     if j == 0 or j == (len(grid[0]) - 1):
         return 1
