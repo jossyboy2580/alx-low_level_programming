@@ -10,6 +10,7 @@ def island_perimeter(grid):
     in a grid
     """
 
+    #  Flags
     perimeter = 0
     isolated = 0
 
@@ -46,7 +47,8 @@ def island_perimeter(grid):
                 if is_inland(grid, i, j):
                     continue
                 else:
-                    perimeter += peri(grid, i, j)
+                    points = peri(grid, i, j)
+                    perimeter += points
     return perimeter
 
 
